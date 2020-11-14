@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--定义服务名称-->
+    <dubbo:application name="dubbo-server"/>
+    <!--注册中心N/A表示不需要注册中心(这是可选的)-->
+    <dubbo:registry address="N/A"/>
+
+    <!--通过接口引用找到服务-->
+    <!--<dubbo:reference id="loginService" interface="org.example.ILoginService"/>-->
+    <!--配置远程服务的地址-->
+    <dubbo:reference id="loginService" interface="org.example.ILoginService"
+                     url="dubbo://192.168.1.10:20880/org.example.ILoginService"/>
+</beans>
